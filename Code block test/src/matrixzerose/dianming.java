@@ -15,7 +15,7 @@ public class dianming {
 	}
 	public static String[] savenam3() {
 		String []a1 = {"123"};
-		return;
+		return a1;
 	}
 
 	public static String[] savename () {

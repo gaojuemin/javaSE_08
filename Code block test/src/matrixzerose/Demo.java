@@ -51,30 +51,5 @@ public static int add (double x,double y) {
 	a= (int) (x+y);
 	return a;
 }
-
 }
-
-         string names =init(）；
-        show(names);
-         System.out.println();
-         System.out.println(names[generateRandom(names)]);
-
-public static String[] init() {
-	
-	return new String [] {"A","B","C","D","E","F","G"};
-}
-public static void show (String[]name) {
-	for (int i=0;i <names.length;i++) {
-		if (i<name.length-1) {
-			System.out.println(names[i]+",");
-		}
-		else 
-		System.out.println(names[i]);
-		
-}
-	
-	public static int generateRandom(String[] names) {
-		Random random =new random();
-		return random.nextInt(names.length);
-	}
 
