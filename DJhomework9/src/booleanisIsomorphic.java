@@ -24,8 +24,8 @@ You may assume both s and t have the same length.
  */
 public class booleanisIsomorphic {
 	public static void main(String[] args) {
-		String s = "a";      // ""是true,a and a是true, ab and ac是true，ab 和aa是false。
-		String t = "a";
+		String s = "ab";      // ""是true,a and a是true, ab and ac是true，ab 和aa是false。
+		String t = "ca";
 		System.out.println(isIsomorphic(s, t));
 	}
 
@@ -53,17 +53,19 @@ public class booleanisIsomorphic {
 		}
 		for(int i =0;i<2;i++) {
 			if (((list.get(i)==0)&&x[i]!=x[i+1])&&((list.get(i)==0)&&y[i]!=y[i+1])) { 
-				return true;
+				return true; // ab and ac是true，ab 和aa是false
 			}
 			}
 		
-		for (int i = 0; i < list.size() - 1; i++) {
+		/*for (int i = 0; i < list.size() - 1; i++) {
 			for (int j = i + 1; j < list.size(); j++) {
-				if ((list.get(i) - list.get(j) == 0) && (x[i] == x[j])) { // 数组内如有重复数，说明字母相同&&排除正好遇到差值一样的情况
+				if ((list.get(i) - list.get(j) == 0) && ((x[i] == x[j])||x.length<2)) { // 数组内如有重复数，说明字母相同&&排除正好遇到差值一样的情况
 					return true;
 				}
 			}
-		}
+		}*/
+		
+		if (list.)
 		return false;
 	}
 }

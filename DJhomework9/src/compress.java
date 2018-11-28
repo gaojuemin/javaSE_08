@@ -57,9 +57,16 @@ All characters have an ASCII value in [35, 126].
 public class compress {
 	public static void main(String[] args) {
 		// System.out.println(charToByteAscii2('a'));
-		char[] ch1 = { 'a', 'b', 'b', 'c', 'c', 'c' };
-		compress(ch1);
+		char[] ch1 = {'a','b','b','c','c','c'};
+		char[] ch2 = {'a'};
+		char[] ch3 = {'a','b'};
+		char[] ch4 = {'a','b','b'};
+		for (int i = 0; i < compress2(ch4).length; i++) {
+			System.out.print(" " + compress2(ch4)[i]);
+		}
+
 	}
+
 	private static void compress(char[] chars) {
 		int count = 0;
 		ArrayList<Integer> list = new ArrayList<Integer>();
@@ -74,12 +81,48 @@ public class compress {
 		}
 		for (int i = 0; i < list.size(); i++) {
 			if (list.get(i) != 0) {
-				System.out.print((char) (i + 35)); //+35恢复前面i=35开始的关系，为了转码。
+				System.out.print((char) (i + 35)); // +35恢复前面i=35开始的关系，为了转码。
 				System.out.print(list.get(i));
 				System.out.print(" ");
 			}
 
 		}
 
+	}
+
+	public static char[] compress2(char[] ch1) {
+		int count = 0;
+		
+		
+		if (ch1.length == 1) {
+			return ch1;
+		}
+		if (ch1.length >= 2) {
+				
+			for (int i = 1; i < ch1.length; i++) {
+				//if (ch1[i] != ch1[i+1]) {
+				//	ch1[j++] = ch1[i];
+				//}
+				while ( i < ch1.length&&ch1[i]==ch1[i-1]) {
+					count++;
+					i++;
+					}
+				if (  count>=2 && ch1[i-1] != ch1[i]) {
+					
+					ch1[i-1] = ch1[i - count+1];
+					String str = String.valueOf(count);
+					char[] arry = str.toCharArray();
+					for (int k = 0; k < arry.length; k++) {
+						ch1[i - count + 2] = arry[k];
+					}
+					
+				}
+				else if (count==1) {
+					ch1[i-1]=ch1[i];
+				}
+				count=0;
+			}
+		}
+		return ch1;
 	}
 }
